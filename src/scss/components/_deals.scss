@@ -1,0 +1,526 @@
+.deals {
+	&__container {
+		border-radius: 10px;
+		border: 1px solid var(--deals-border-color);
+		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+	}
+	&__aside {
+		max-width: 170px;
+		min-width: 170px;
+	}
+	&__info {
+		margin-bottom: 48px;
+	}
+	&__balance {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin-bottom: 16px;
+	}
+	&__item {
+		width: 100%;
+		padding: 7px 9px 4px 8px;
+		border-radius: 5px;
+		border: 1px solid rgba(37, 69, 128, 0.2);
+		background: var(--white-color);
+		&-green {
+			border: 1px solid #cef2cd;
+		}
+		&-red {
+			border: 1px solid #fdcdcd;
+		}
+		&-blue {
+			border: 1px solid #c0eefd;
+		}
+	}
+	&__title {
+		&-balance {
+			color: var(--real-black-color);
+			text-align: right;
+			font-family: "Open Sans";
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			margin-bottom: 6px;
+		}
+		&-aside {
+			margin-bottom: 8px;
+			color: var(--real-black-color);
+			font-size: 10px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+		}
+	}
+	&__value {
+		color: var(--real-black-color);
+		font-family: "Open Sans";
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 15px;
+			height: 18px;
+			background: url("../img/rouble-bigger.svg") no-repeat;
+			margin-left: 5px;
+		}
+	}
+	&__text {
+		&-blue {
+			color: var(--track-color);
+		}
+	}
+	&__button {
+		width: 100%;
+		padding: 9px 14px;
+		padding-bottom: 11px;
+		color: var(--white-color);
+		font-family: "Golos Text";
+		font-size: 9px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 5px;
+		background: var(--track-color);
+		text-decoration: none;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+	&__tip {
+		color: var(--real-black-color);
+		text-align: center;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		padding: 12px;
+		width: 100%;
+		border-radius: 5px;
+		&-green {
+			background: #cef2cd;
+		}
+		&-red {
+			background: #fdcdcd;
+		}
+		&-blue {
+			background: #c0eefd;
+		}
+	}
+	&__table {
+		width: 100%;
+		height: fit-content;
+		outline: 1px solid var(--border-color);
+		outline-offset: -1px;
+		border-radius: 5px;
+		max-width: 980px;
+	}
+	&__header {
+		border-radius: 5px;
+		background: var(--track-color);
+		& .hero__cell {
+			&:first-child {
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			&:last-child {
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+	}
+	&__tooltip {
+		color: var(--black-color);
+		font-family: "Montserrat";
+		font-size: 14px;
+		font-weight: 400;
+		line-height: normal;
+		white-space: nowrap;
+		position: absolute;
+		top: 5px;
+		left: 3.6px;
+		padding: 4px 14px;
+		border-radius: 5px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+		background: var(--white-color);
+		&-green {
+			border: 1px solid var(--dark-green-color);
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: 11px;
+				bottom: -13px;
+				border: 4px solid transparent;
+				border-top: 9px solid var(--dark-green-color);
+			}
+			&::after {
+				border-top: 7px solid white;
+				bottom: -10px;
+			}
+		}
+		&-red {
+			border: 1px solid var(--red-color);
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: 11px;
+				bottom: -13px;
+				border: 4px solid transparent;
+				border-top: 9px solid var(--red-color);
+			}
+			&::after {
+				border-top: 7px solid white;
+				bottom: -10px;
+			}
+		}
+		&-blue {
+			border: 1px solid var(--blue-color);
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: 11px;
+				bottom: -13px;
+				border: 4px solid transparent;
+				border-top: 9px solid var(--blue-color);
+			}
+			&::after {
+				border-top: 7px solid white;
+				bottom: -10px;
+			}
+		}
+	}
+	&__col {
+		box-sizing: border-box;
+		&-status {
+			position: relative;
+			box-sizing: border-box;
+			max-width: 40px;
+			width: 100%;
+			justify-content: center;
+			position: relative;
+			&:hover {
+				& .deals__tooltip {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		&-id {
+			box-sizing: border-box;
+			max-width: 100px;
+			width: 100%;
+			justify-content: center;
+		}
+		&-date {
+			box-sizing: border-box;
+			max-width: 130px;
+			width: 100%;
+			justify-content: center;
+		}
+		&-company {
+			box-sizing: border-box;
+			max-width: 190px;
+			width: 100%;
+			justify-content: center;
+		}
+		&-deal {
+			box-sizing: border-box;
+			max-width: 350px;
+			width: 100%;
+			justify-content: center;
+		}
+		&-summ {
+			box-sizing: border-box;
+			max-width: 105px;
+			width: 100%;
+			justify-content: center;
+			&-green {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #cef2cd;
+			}
+			&-red {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #fdcdcd;
+			}
+			&-blue {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #c0eefd;
+			}
+		}
+		&-cashback {
+			box-sizing: border-box;
+			max-width: 105px;
+			width: 100%;
+			justify-content: center;
+			&-green {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #cef2cd;
+			}
+			&-red {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #fdcdcd;
+			}
+			&-blue {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				background: #c0eefd;
+			}
+		}
+	}
+	&__row {
+		display: flex;
+		&:not(:first-child) {
+			box-shadow: 0 -1px 0 var(--border-color);
+		}
+		& .hero__cell {
+			&:first-child {
+				padding-left: 9px;
+				border-left: 1px solid transparent !important;
+			}
+			&:last-child {
+				border-right: 1px solid transparent !important;
+				padding-right: 9px;
+			}
+		}
+	}
+	&__cell {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		padding: 19px 6px;
+		font-size: 14px;
+		line-height: 17px;
+		letter-spacing: 0em;
+		color: var(--black-color);
+		border-right: 1px solid transparent;
+		border-left: 1px solid transparent;
+		transition: border 0.2s ease;
+		&-header {
+			position: relative;
+			font-size: 16px;
+			font-weight: 700;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			color: var(--white-color);
+			justify-content: center;
+			// border: 1px solid var(--track-color);
+			&-hide-after {
+				&::after {
+					opacity: 0;
+				}
+			}
+			&:not(:last-child) {
+				&::after {
+					content: "";
+					position: absolute;
+					right: -1px;
+					top: 50%;
+					transform: translateY(-50%);
+					background: var(--border-color);
+					width: 1px;
+					height: 55%;
+					transition: opacity 0.4s ease;
+				}
+			}
+		}
+		&-hovered {
+			border-right: 1px solid var(--border-color);
+			border-left: 1px solid var(--border-color);
+		}
+		& a {
+			font-size: inherit;
+			line-height: inherit;
+			font-weight: inherit;
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+	&__circle {
+		&-green {
+			circle {
+				fill: var(--dark-green-color);
+			}
+		}
+		&-red {
+			circle {
+				fill: var(--red-color);
+			}
+		}
+		&-blue {
+			circle {
+				fill: var(--blue-color);
+			}
+		}
+	}
+	&__footer {
+		border-top: 1px solid rgba(225, 83, 53, 0.1);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 22px;
+	}
+	&__text {
+		&-pages {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+		&-page {
+			margin-right: 11px;
+			&-hidden {
+				display: none;
+			}
+		}
+		&-footer {
+			font-family: var(--second-family);
+			font-size: 11px;
+			font-weight: 600;
+			line-height: 15px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+	}
+	&__button {
+		&-control {
+			font-family: var(--second-family);
+			font-size: 11px;
+			font-weight: 600;
+			line-height: 15px;
+			text-transform: uppercase;
+			&:disabled {
+				color: var(--black-color);
+			}
+		}
+		&-prev {
+			margin-right: 25px;
+		}
+		&-next {
+			margin-left: 27px;
+		}
+		&-last {
+			position: relative;
+			margin-left: 27px;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -13px;
+				height: 100%;
+				width: 1px;
+				background: var(--black-color);
+				font-weight: 700;
+			}
+		}
+	}
+	&__pagination {
+		max-width: 99px;
+		position: relative;
+		bottom: unset !important;
+		left: unset !important;
+	}
+	&__bullet {
+		display: block;
+		position: relative;
+		background: transparent;
+		font-family: var(--second-family);
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 15px;
+		margin-left: 0 !important;
+		opacity: 1;
+		height: 100% !important;
+		line-height: 18px;
+		transition: color 0.3s linear;
+		text-align: center;
+		margin-right: 20px !important;
+		min-width: 20.8px;
+		&:last-child {
+			margin-right: 0 !important;
+		}
+		&:first-child {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -13px;
+				height: 100%;
+				width: 1px;
+				background: var(--black-color);
+				font-weight: 700;
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: -49%;
+			height: 100%;
+			width: 1px;
+			background: var(--black-color);
+			font-weight: 700;
+		}
+		&-active {
+			color: var(--blue-color);
+		}
+	}
+	&__select {
+		appearance: none;
+		padding: 5px 49px 5px 15px;
+		border-radius: 2px;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		font-family: var(--second-family);
+		font-size: 12px;
+		font-weight: 400;
+		margin-left: 11px;
+		background: url("../img/down-arrow.svg") no-repeat var(--white-color);
+		background-size: 17px 9px;
+		background-position-x: 75%;
+		background-position-y: 50%;
+	}
+}
