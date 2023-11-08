@@ -24,6 +24,35 @@ typeButtons.forEach((btn) => {
 	});
 });
 
+const heroTableHeader = `
+	<div class="hero__header">
+		<div class="hero__row">
+			<div class="hero__cell hero__cell-header hero__col-id">ID</div>
+			<div class="hero__cell hero__cell-header hero__col-date">Дата</div>
+			<div class="hero__cell hero__cell-header hero__col-stage">Стадия заказа</div>
+			<div class="hero__cell hero__cell-header hero__col-dispatchDate">Планируемая дата отгрузки</div>
+			<div class="hero__cell hero__cell-header hero__col-order">Заказ</div>
+			<div class="hero__cell hero__cell-header hero__col-nomenclature">Номенклатура</div>
+			<div class="hero__cell hero__cell-header hero__col-summ">Сумма</div>
+			<div class="hero__cell hero__cell-header hero__col-button"></div>
+		</div>
+	</div>
+`;
+
+// верстка внутреннего элемента списка
+const heroItemInner = `
+	<div class="hero__cell hero__col-id"></div>
+	<div class="hero__cell hero__col-date"></div>
+	<div class="hero__cell hero__col-stage"></div>
+	<div class="hero__cell hero__col-dispatchDate"></div>
+	<div class="hero__cell hero__col-order"></div>
+	<div class="hero__cell hero__col-nomenclature"></div>
+	<div class="hero__cell hero__col-summ"><span></span></div>
+	<div class="hero__cell hero__col-button">
+		<button class="btn-reset hero__button-table">Заказать акт</button>
+	</div>
+`;
+
 if (document.querySelector(".hero")) {
 	axios
 		.get(`http://localhost:3000/methchivData?type=${activeTypeButton.innerHTML}`)
@@ -40,19 +69,6 @@ function makeSlider(params = {}) {
 	if (params.updateSlides == true) {
 		slider.wrapperEl.innerHTML = "";
 	}
-	// верстка внутреннего элемента списка
-	const heroItemInner = `
-		<div class="hero__cell hero__col-id"></div>
-		<div class="hero__cell hero__col-date"></div>
-		<div class="hero__cell hero__col-stage"></div>
-		<div class="hero__cell hero__col-dispatchDate"></div>
-		<div class="hero__cell hero__col-order"></div>
-		<div class="hero__cell hero__col-nomenclature"></div>
-		<div class="hero__cell hero__col-summ"><span></span>₽</div>
-		<div class="hero__cell hero__col-button">
-			<button class="btn-reset hero__button-table">Заказать акт</button>
-		</div>
-	`;
 
 	const sliderWrapper = document.querySelector(`.hero__wrapper`);
 	const formattedData = [];
@@ -86,6 +102,7 @@ function makeSlider(params = {}) {
 	formattedData.forEach((array) => {
 		// создаем новый слайд
 		let heroSlide = document.createElement("div");
+		heroSlide.innerHTML = heroTableHeader;
 		heroSlide.classList = `swiper-slide hero__slide`;
 		array.forEach((row) => {
 			// создем новый айтем
@@ -101,7 +118,7 @@ function makeSlider(params = {}) {
 			heroItem.querySelector(".hero__col-dispatchDate").innerHTML = row.dispatchDate;
 			heroItem.querySelector(".hero__col-order").innerHTML = row.order;
 			heroItem.querySelector(".hero__col-nomenclature").innerHTML = row.nomenclature;
-			heroItem.querySelector(".hero__col-summ span").innerHTML = formatNumber(row.summ);
+			heroItem.querySelector(".hero__col-summ span").innerHTML = formatNumber(row.summ) + " ₽";
 
 			// засовываем в лист
 			heroSlide.appendChild(heroItem);
@@ -154,13 +171,13 @@ function makeSlider(params = {}) {
 	}
 
 	// проверка на наличие последнего ряда без нижней границы
-	let lastSlide = formattedData[formattedData.length - 1];
-	if (lastSlide.length !== chunkSize) {
-		let lastRowNode = document.getElementById(lastSlide[lastSlide.length - 1].id);
-		if (lastRowNode) {
-			lastRowNode.style.boxShadow = "0 -1px 0 var(--border-color), 0 1px 0 var(--border-color)";
-		}
-	}
+	// let lastSlide = formattedData[formattedData.length - 1];
+	// if (lastSlide.length !== chunkSize) {
+	// 	let lastRowNode = document.getElementById(lastSlide[lastSlide.length - 1].id);
+	// 	if (lastRowNode) {
+	// 		lastRowNode.style.boxShadow = "0 -1px 0 var(--border-color), 0 1px 0 var(--border-color)";
+	// 	}
+	// }
 
 	// обработчик кнопки "последняя"
 	const lastButton = document.querySelector(".hero__button-last");

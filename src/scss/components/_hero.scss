@@ -1,5 +1,6 @@
 .hero {
 	position: relative;
+	margin-bottom: 40px;
 	&::before {
 		content: "";
 		position: absolute;
@@ -93,7 +94,6 @@
 		border-radius: 5px;
 		max-width: 1400px;
 		background: var(--white-color);
-		margin-bottom: 40px;
 	}
 	&__header {
 		border-radius: 5px 0px 5px 5px;
@@ -329,6 +329,7 @@
 			font-size: 12px;
 			font-weight: 400;
 			line-height: normal;
+			white-space: nowrap;
 		}
 	}
 	&__pagination {
@@ -393,5 +394,36 @@
 		background-position-x: 75%;
 		background-position-y: 50%;
 		cursor: pointer;
+	}
+	&__slide {
+		overflow-x: scroll;
+		width: 1400px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.hero {
+		&__top {
+			margin-bottom: 70px;
+		}
+		&__button {
+			&-order {
+				position: relative;
+				&::after {
+					content: "";
+					position: absolute;
+					inset: -1px;
+					background: transparent;
+					border: 1px solid var(--white-color);
+					border-radius: 10px;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.hero {
 	}
 }

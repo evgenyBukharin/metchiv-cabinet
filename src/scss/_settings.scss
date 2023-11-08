@@ -19,7 +19,7 @@ html {
 	min-width: 320px;
 	min-height: 100%;
 	font-size: 16px;
-	background: #fafafa;
+	background: var(--body-bg-color);
 }
 
 .site-container {
