@@ -4,6 +4,7 @@ Swiper.use([Navigation, Pagination, Thumbs]);
 
 let sliderData = [];
 let slider = null;
+let isHeroOnPage = document.querySelector(".hero");
 
 let activeTypeButton = document.querySelector(".hero__type-active");
 const typeButtons = document.querySelectorAll(".hero__type");
@@ -12,15 +13,17 @@ typeButtons.forEach((btn) => {
 		activeTypeButton.classList.remove("hero__type-active");
 		btn.classList.add("hero__type-active");
 		activeTypeButton = btn;
-		axios
-			.get(`http://localhost:3000/methchivDataNew?type=${activeTypeButton.innerHTML}`)
-			.then((r) => {
-				sliderData = r.data;
-				makeSlider({ updateSlides: true });
-			})
-			.catch((e) => {
-				console.log(e);
-			});
+		if (isHeroOnPage) {
+			axios
+				.get(`http://localhost:3000/methchivDataNew?type=${activeTypeButton.innerHTML}`)
+				.then((r) => {
+					sliderData = r.data;
+					makeSlider({ updateSlides: true });
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}
 	});
 });
 
@@ -53,7 +56,7 @@ const heroItemInner = `
 	</div>
 `;
 
-if (document.querySelector(".hero")) {
+if (isHeroOnPage) {
 	axios
 		.get(`http://localhost:3000/methchivData?type=${activeTypeButton.innerHTML}`)
 		.then((r) => {
@@ -150,6 +153,16 @@ function makeSlider(params = {}) {
 		},
 		thumbs: {
 			swiper: sliderBullets,
+		},
+		breakpoints: {
+			// when window width is >= 320px
+			0: {
+				allowTouchMove: false,
+			},
+			// when window width is >= 640px
+			769: {
+				allowTouchMove: true,
+			},
 		},
 	});
 

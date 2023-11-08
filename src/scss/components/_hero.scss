@@ -23,6 +23,9 @@
 		&-slider-bullets {
 			padding-left: 1px;
 		}
+		&-footer {
+			display: flex;
+		}
 	}
 	&__title {
 		&-manager {
@@ -395,10 +398,6 @@
 		background-position-y: 50%;
 		cursor: pointer;
 	}
-	&__slide {
-		overflow-x: scroll;
-		width: 1400px;
-	}
 }
 
 @media (max-width: 1024px) {
@@ -425,5 +424,80 @@
 
 @media (max-width: 768px) {
 	.hero {
+		&__row,
+		&__header {
+			width: 1400px;
+		}
+		&__slide {
+			overflow-x: auto;
+		}
+		&__footer {
+			flex-direction: column;
+			gap: 15px;
+		}
+		&__text {
+			&-all {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 620px) {
+	.hero {
+		&__top {
+			flex-direction: column;
+		}
+		&__button {
+			&-order {
+				padding: 20px;
+				& br {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.hero {
+		&__container {
+			&-footer {
+				gap: 12px;
+			}
+		}
+		&__manager {
+			padding: 20px 30px;
+		}
+		&__type {
+			font-size: 12px;
+			padding: 10px 16px;
+		}
+		&__text {
+			&-pages {
+				flex-direction: column;
+				gap: 12px;
+			}
+			&-page {
+				display: none !important;
+			}
+		}
+		&__button {
+			&-control {
+				margin: 0;
+			}
+			&-last {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 350px) {
+	.hero {
+		&__manager {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 }
