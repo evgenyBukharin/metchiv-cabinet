@@ -1,0 +1,32 @@
+.news {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: 40px;
+	}
+	&__item {
+		grid-column: 3 span;
+		min-height: 360px;
+		border-radius: 10px;
+		background: var(--white-color);
+		overflow: hidden;
+		display: block;
+		text-decoration: none;
+	}
+	&__content {
+		padding: 20px;
+	}
+	&__date {
+		color: #9f9f9f;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: normal;
+		margin-bottom: 24px;
+	}
+	&__title {
+		color: var(--black-color);
+		font-size: 14px;
+		font-weight: 700;
+		line-height: normal;
+	}
+}

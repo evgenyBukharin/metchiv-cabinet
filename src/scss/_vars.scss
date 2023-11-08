@@ -1,28 +1,21 @@
 :root {
 	// base
-	--font-family: "Monserrat", sans-serif;
-	--second-family: "Open Sans", sans-serif;
-	--content-width: 1200px;
+	--font-family: "PT Sans", sans-serif;
+	--second-family: "Golos Text", sans-serif;
+	--third-family: "Open Sans", sans-serif;
+	--content-width: 1400px;
 	--container-offset: 20px;
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
 	// colors
 	--white-color: #fff;
-	--black-color: #263238;
-	--real-black-color: #000;
-	--light-blue-color: #9fe7fd;
-	--lighter-blue-color: #89cff6;
-	--blue-color: #37aee2;
-	--dark-blue-color: #127bb7;
-	--darkest-blue-color: #142647;
-	--dark-green-color: #137d11;
-	--green-color: #25d366;
-	--grey-color: #f2eeee;
-	--grey-hover-color: #b8b8b8;
-	--track-color: #0bbbef;
-	--red-color: #ef0b0b;
-	--faq-text-color: #005893;
-	--deals-border-color: #307aa4;
+	--black-color: #000;
+	--light-blue-color: #2e58bd;
+	--blue-color: #26448c;
+	--light-grey-color: #f2eeee;
+	--grey-color: #636161;
+	--dark-grey-color: #6d7380;
 	--border-color: rgba(225, 83, 53, 0.1);
-	--button-color: #129757;
+	--dark-type-color: #7886a6;
+	--light-type-color: #a2b1d1;
 }

@@ -57,7 +57,7 @@
 	"dependencies": {
 		"@popperjs/core": "^2.11.2",
 		"aos": "^2.3.4",
-		"axios": "^1.4.0",
+		"axios": "^1.6.0",
 		"graph-modal": "^1.0.4",
 		"graph-tabs": "^1.0.0",
 		"gsap": "^3.11.5",
